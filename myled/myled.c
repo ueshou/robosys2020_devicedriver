@@ -3,6 +3,10 @@
 #include <linux/cdev.h>
 #include <linux/uaccess.h>
 #include <linux/io.h>
+#include <linux/delay.h>
+
+#define num 4
+
 MODULE_AUTHOR("Shota Ueda");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
@@ -13,18 +17,51 @@ static struct cdev cdv;
 static struct class *cls=NULL;
 static volatile u32 *gpio_base = NULL;
 
+static int number[num] = {22, 23, 25, 27};
+
 static ssize_t led_write(struct file* filp,const char* buf,size_t count, loff_t* pos){
 	char c;
+	int i,n;
 	if(copy_from_user(&c, buf, sizeof(char)))
 	return -EFAULT;
 
 	//printk(KERN_INFO"recieve %c\n",c);
-	if(c=='0'){
-		gpio_base[10] = 1 << 25;
+	/*
+	if(c == '0') gpio_base[7] = 1 << number[0];
+	if(c == '1') gpio_base[10] = 1 << number[0];
+	if(c == '2') gpio_base[7] = 1 << number[1];
+	if(c == '3') gpio_base[10] = 1 << number[1];
+	if(c == '4') gpio_base[7] = 1 << number[2];
+	if(c == '5') gpio_base[10] = 1 << number[2];
+	if(c == '6') gpio_base[7] = 1 << number[3];
+	if(c == '7') gpio_base[10] = 1 << number[3];
+*/
+	if(c == 'g'){
+		gpio_base[7] = 1 << number[2];
+		gpio_base[7] = 1 << number[0];
+		gpio_base[10] = 1 << number[1];
 	}
-	else if(c == '1'){
-		gpio_base[7] = 1 << 25;
+	if(c == 's'){
+		for(n=0; n<6; n++){
+			gpio_base[10] = 1 << number[0];
+			msleep(400);
+			gpio_base[7] = 1 << number[0];
+			msleep(400);
+		}
+		gpio_base[10] = 1 << number[0];
+		gpio_base[10] = 1 << number[2];
+		gpio_base[7] =1 << number[3];
+		msleep(1500);
+		gpio_base[7] = 1 << number[1];
+		gpio_base[10] = 1 << number[3];
 	}
+	if(c == 'e'){
+		gpio_base[10] = 1 << number[0];
+		gpio_base[10] = 1 << number[1];
+		gpio_base[10] = 1 << number[2];
+		gpio_base[10] = 1 << number[3];
+	}
+
 	return 1;
 }
 
@@ -47,7 +84,7 @@ static struct file_operations led_fops = {
 
 static int __init init_mod(void)
 {
-	int retval;
+	int retval,i;
 	retval = alloc_chrdev_region(&dev,0,1,"myled");
 	if(retval<0){
 		printk(KERN_ERR "alloc_chrdev_region failed.\n");
@@ -70,11 +107,13 @@ static int __init init_mod(void)
 
 	gpio_base = ioremap_nocache(0xfe200000, 0xA0);
 	
-	const u32 led = 25;
+	for(i = 0;i < num; i++){
+	const u32 led = number[i];
 	const u32 index = led/10;
 	const u32 shift = (led%10)*3;
 	const u32 mask = ~(0x7 << shift);
 	gpio_base[index] = (gpio_base[index] & mask) | (0x1 << shift);
+	}
 
 	return 0;
 	
