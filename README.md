@@ -37,9 +37,9 @@
 
 ---
 
-## ビルド
+## 準備
 
-実行する前に、以下のコマンドを入力してビルドしてください。
+実行する前に、以下を入力してください。
 
 ```sh
 $ git clone https://github.com/ueshou/robosys2020_devicedriver.git
