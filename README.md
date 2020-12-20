@@ -4,33 +4,35 @@
 ---
 ##  実装内容
 
-今回は、ロボットシステム学第7回、8回授業の際、上田先生が作成したデバイスドライバ(https://github.com/ryuichiueda/robosys_device_drivers/blob/master/myled.c)　に変更を加えて作成しています。
-・gを入力すると緑のLEDが2つ点灯します。
-・sを入力するとまず1つの緑のLEDが6回点滅、その後緑のLEDが消え黄色が点灯する。その後黄色が消え赤が点灯する。
-・eを入力するとすべてのLEDが消える。
+今回は、ロボットシステム学第7回、8回授業の際、上田先生が作成したデバイスドライバ(https://github.com/ryuichiueda/robosys_device_drivers/blob/master/myled.c)　に変更を加えて作成しています。  
+・gを入力すると緑のLEDが2つ点灯します。  
+・sを入力するとまず1つの緑のLEDが6回点滅、その後緑のLEDが消え黄色が点灯する。その後黄色が消え赤が点灯する。  
+・eを入力するとすべてのLEDが消える。  
 
 ---
 ## 用意するもの
 
-・Raspberry Pi 4 Model8
-・ブレッドボード
-・LED（緑）×2
-・LED（赤）×2
-・LED（黄色）
-・ジャンパー線　オス-メス　×5
-・ジャンパー線　オス-オス　×6
-・抵抗　330Ω　×4
+・Raspberry Pi 4 Model8  
+・ブレッドボード  
+・LED（緑）×2  
+・LED（赤）×2  
+・LED（黄色）  
+・ジャンパー線　オス-メス　×5  
+・ジャンパー線　オス-オス　×6  
+・抵抗　330Ω　×4  
 
 ---
 
 ## 回路
 
-以下のような回路を組み、使用しました。
+以下のような回路を組み、使用しました。  
+
 <img src = https://user-images.githubusercontent.com/53548215/102705889-c07ccd00-42cf-11eb-8b72-c31cc7345b4d.jpeg width = 500px />
-・LED(黄色)の隣のLED(緑)をGPIO 25
-・LED(赤)の隣のLED(緑)をGPIO 22
-・LED(黄色)をGPIO 27
-・二つのLED(赤)をGPIO 23
+
+・LED(黄色)の隣のLED(緑)をGPIO 25  
+・LED(赤)の隣のLED(緑)をGPIO 22  
+・LED(黄色)をGPIO 27  
+・二つのLED(赤)をGPIO 23  
 へそれぞれつなぎます。GNDはどのピンからとってもかまいません。
 
 ---
@@ -57,7 +59,7 @@ $ echo g > /dev/myled0
 ```
 
 上記を入力すると以下の動画のように動作します。
-
+<img src = https://user-images.githubusercontent.com/53548215/102705949-895aeb80-42d0-11eb-88d4-21e1701c7ebb.mov width = 500px />
 ---
 
 ### sを入力したとき
@@ -66,7 +68,7 @@ $ echo g > /dev/myled0
 $ echo s > /dev/myled0
 ```
 上記を入力すると以下の動画のように動作します。
-
+<img src = https://user-images.githubusercontent.com/53548215/102705964-b60f0300-42d0-11eb-8684-b00cc99c6915.mov 500px />
 ---
 
 ### eを入力したとき
