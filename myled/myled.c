@@ -1,6 +1,6 @@
-## SPDX-License-Identifer: GPL-3.0
+// SPDX-License-Identifer: GPL-3.0
 
-## Copyright (C) 2020 Shota Ueda. All rights reserved.
+// Copyright (C) 2020 Shota Ueda. All rights reserved.
 
 
 #include <linux/module.h>
@@ -12,7 +12,7 @@
 
 #define num 4
 
-MODULE_AUTHOR("Shota Ueda");
+MODULE_AUTHOR("Ryuichi Ueda and Shota Ueda");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
