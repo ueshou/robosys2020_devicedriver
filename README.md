@@ -90,4 +90,5 @@ https://www.youtube.com/watch?v=nG9OYthXYuc
 
 ## ライセンス
 
-
+ [GNU GENERAL PUBLIC LICENSE](https://github.com/ueshou/robosys2020_devicedriver/blob/main/COPYING)
+ 
