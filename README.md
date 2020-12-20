@@ -84,7 +84,9 @@ $ echo e > /dev/myled0
 ---
 
 ## デモ動画
-youtubeにアップロードした動画は下記の通りになります。
+youtubeにアップロードした動画は下記のURLになります。
+
+https://www.youtube.com/watch?v=nG9OYthXYuc
 
 ## ライセンス
 
