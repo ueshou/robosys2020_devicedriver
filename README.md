@@ -60,7 +60,7 @@ $ echo g > /dev/myled0
 
 上記を入力すると以下の動画のように動作します。
 
-<img src = https://user-images.githubusercontent.com/53548215/102705949-895aeb80-42d0-11eb-88d4-21e1701c7ebb.mov width = 500px />
+<img src = https://user-images.githubusercontent.com/53548215/102706012-4a796580-42d1-11eb-9fab-dd108e621a78.mov width = 500px />
 
 ---
 
@@ -71,7 +71,7 @@ $ echo s > /dev/myled0
 ```
 上記を入力すると以下の動画のように動作します。
 
-<img src = https://user-images.githubusercontent.com/53548215/102705964-b60f0300-42d0-11eb-8684-b00cc99c6915.mov 500px />
+<img src = https://user-images.githubusercontent.com/53548215/102705964-b60f0300-42d0-11eb-8684-b00cc99c6915.mov with = 500px />
 
 ---
 
