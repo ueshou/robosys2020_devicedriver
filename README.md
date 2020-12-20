@@ -58,9 +58,7 @@ $ sudo chmod 666 /dev/myled0
 $ echo g > /dev/myled0
 ```
 
-上記を入力すると以下の動画のように動作します。
-
-<img src = https://user-images.githubusercontent.com/53548215/102706012-4a796580-42d1-11eb-9fab-dd108e621a78.mov width = 500px />
+上記のように'g'を入力すると、二つのLED(緑)が点灯します
 
 ---
 
@@ -69,9 +67,10 @@ $ echo g > /dev/myled0
 ```sh
 $ echo s > /dev/myled0
 ```
-上記を入力すると以下の動画のように動作します。
-
-<img src = https://user-images.githubusercontent.com/53548215/102705964-b60f0300-42d0-11eb-8684-b00cc99c6915.mov with = 500px />
+上記のように's'を入力すると、次のように動作します。
+1.一つのLED(緑)が6回点滅  
+2.2つのLED(緑)が消え、LED(黄)が点灯  
+3.LED(黄)が消え、LED(赤)が点灯  
 
 ---
 
