@@ -4,7 +4,7 @@
 ---
 ##  実装内容
 
-今回は、ロボットシステム学第7回、8回授業の際、上田先生が作成したデバイスドライバ(https://github.com/ryuichiueda/robosys_device_drivers/blob/master/myled.c)　に変更を加えて作成しています。  
+今回は、ロボットシステム学第7回、8回授業の際、[上田先生が作成したデバイスドライバ](https://github.com/ryuichiueda/robosys_device_drivers/blob/master/myled.c)に変更を加えて作成しています。  
 ・gを入力すると緑のLEDが2つ点灯します。  
 ・sを入力するとまず1つの緑のLEDが6回点滅、その後緑のLEDが消え黄色が点灯する。その後黄色が消え赤が点灯する。  
 ・eを入力するとすべてのLEDが消える。  
