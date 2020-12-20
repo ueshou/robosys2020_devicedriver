@@ -26,7 +26,7 @@
 ## 回路
 
 以下のような回路を組み、使用しました。
-
+<img src = https://user-images.githubusercontent.com/53548215/102705889-c07ccd00-42cf-11eb-8b72-c31cc7345b4d.jpeg>
 ・LED(黄色)の隣のLED(緑)をGPIO 25
 ・LED(赤)の隣のLED(緑)をGPIO 22
 ・LED(黄色)をGPIO 27
