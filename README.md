@@ -59,7 +59,9 @@ $ echo g > /dev/myled0
 ```
 
 上記を入力すると以下の動画のように動作します。
+
 <img src = https://user-images.githubusercontent.com/53548215/102705949-895aeb80-42d0-11eb-88d4-21e1701c7ebb.mov width = 500px />
+
 ---
 
 ### sを入力したとき
@@ -68,7 +70,9 @@ $ echo g > /dev/myled0
 $ echo s > /dev/myled0
 ```
 上記を入力すると以下の動画のように動作します。
+
 <img src = https://user-images.githubusercontent.com/53548215/102705964-b60f0300-42d0-11eb-8684-b00cc99c6915.mov 500px />
+
 ---
 
 ### eを入力したとき
