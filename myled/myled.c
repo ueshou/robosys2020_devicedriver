@@ -1,6 +1,6 @@
 // SPDX-License-Identifer: GPL-3.0
 
-// Copyright (C) 2020 Shota Ueda. All rights reserved.
+// Copyright (C) 2020 Ryuichi Ueda and Shota Ueda. All rights reserved.
 
 
 #include <linux/module.h>
@@ -30,17 +30,6 @@ static ssize_t led_write(struct file* filp,const char* buf,size_t count, loff_t*
 	if(copy_from_user(&c, buf, sizeof(char)))
 	return -EFAULT;
 
-	//printk(KERN_INFO"recieve %c\n",c);
-	/*
-	if(c == '0') gpio_base[7] = 1 << number[0];
-	if(c == '1') gpio_base[10] = 1 << number[0];
-	if(c == '2') gpio_base[7] = 1 << number[1];
-	if(c == '3') gpio_base[10] = 1 << number[1];
-	if(c == '4') gpio_base[7] = 1 << number[2];
-	if(c == '5') gpio_base[10] = 1 << number[2];
-	if(c == '6') gpio_base[7] = 1 << number[3];
-	if(c == '7') gpio_base[10] = 1 << number[3];
-*/
 	if(c == 'g'){
 		gpio_base[7] = 1 << number[2];
 		gpio_base[7] = 1 << number[0];
