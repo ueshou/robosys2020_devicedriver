@@ -26,7 +26,7 @@ static int number[num] = {22, 23, 25, 27};
 
 static ssize_t led_write(struct file* filp,const char* buf,size_t count, loff_t* pos){
 	char c;
-	int i,n;
+	int n;
 	if(copy_from_user(&c, buf, sizeof(char)))
 		return -EFAULT;
 
