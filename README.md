@@ -92,3 +92,5 @@ https://www.youtube.com/watch?v=nG9OYthXYuc
 
  [GNU GENERAL PUBLIC LICENSE](https://github.com/ueshou/robosys2020_devicedriver/blob/main/COPYING)
  
+ 
+ *このREADME.mdは19C1054佐藤暖君のものを参考にしました
