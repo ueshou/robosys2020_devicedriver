@@ -28,7 +28,7 @@ static ssize_t led_write(struct file* filp,const char* buf,size_t count, loff_t*
 	char c;
 	int i,n;
 	if(copy_from_user(&c, buf, sizeof(char)))
-	return -EFAULT;
+		return -EFAULT;
 
 	if(c == 'g'){
 		gpio_base[7] = 1 << number[2];
@@ -76,8 +76,7 @@ static struct file_operations led_fops = {
 	.read = sushi_read
 };
 
-static int __init init_mod(void)
-{
+static int __init init_mod(void){
 	int retval,i;
 	retval = alloc_chrdev_region(&dev,0,1,"myled");
 	if(retval<0){
@@ -85,7 +84,7 @@ static int __init init_mod(void)
 		return retval;
 	}
 	printk(KERN_INFO "%s is loaded.major:%d\n",__FILE__,MAJOR(dev));
-
+	
 	cdev_init(&cdv, &led_fops);
 	retval = cdev_add(&cdv, dev, 1);
 	if(retval < 0){
@@ -98,23 +97,22 @@ static int __init init_mod(void)
 		return PTR_ERR(cls);
 	}
 	device_create(cls, NULL, dev, NULL, "myled%d",MINOR(dev));
-
+	
 	gpio_base = ioremap_nocache(0xfe200000, 0xA0);
 	
 	for(i = 0;i < num; i++){
-	const u32 led = number[i];
-	const u32 index = led/10;
-	const u32 shift = (led%10)*3;
-	const u32 mask = ~(0x7 << shift);
-	gpio_base[index] = (gpio_base[index] & mask) | (0x1 << shift);
+		const u32 led = number[i];
+		const u32 index = led/10;
+		const u32 shift = (led%10)*3;
+		const u32 mask = ~(0x7 << shift);
+		gpio_base[index] = (gpio_base[index] & mask) | (0x1 << shift);
 	}
-
-	return 0;
 	
+	return 0;
+
 }
 
-static void __exit cleanup_mod(void)
-{
+static void __exit cleanup_mod(void){
 	cdev_del(&cdv);
 	device_destroy(cls, dev);
 	class_destroy(cls);
